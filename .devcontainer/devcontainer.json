@@ -1,0 +1,15 @@
+{
+	"name": "Dependency-viewer",
+	"image": "mcr.microsoft.com/devcontainers/base:bookworm",
+	"features": {
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/eitsupi/devcontainer-features/nushell:0": {},
+		"ghcr.io/devcontainers-extra/features/mise:1": {}
+	},
+	"workspaceMount": "source=dependency-viewer-volume,target=/workspace,type=volume",
+  	"workspaceFolder": "/workspace",
+	"mounts":[
+		"source=${localEnv:USERPROFILE}/AppData/Roaming/nushell/config.nu,target=/root/.config/nushell/config.nu,type=bind"
+	],
+	"postCreateCommand": "echo 'exec nu' >> ~/.bashrc"
+}
